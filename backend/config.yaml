@@ -1,0 +1,22 @@
+path: /Users/jyx/Desktop/temp/SR/pose/datasets/basketball2
+train: train
+test: test
+val: valid
+
+# Define Classes and their Labels
+
+names:
+  0: ball
+
+
+# path: /Users/jyx/Desktop/temp/SR/pose/datasets/Detect Players
+# train: train
+# test: test
+# val: valid
+
+# # Define Classes and their Labels
+
+# names:
+#   0: Ball
+#   1: Player
+#   2: Referee

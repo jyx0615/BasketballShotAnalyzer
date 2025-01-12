@@ -1,0 +1,57 @@
+# Python specific
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.sqlite3
+
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+*.egg-info/
+*.egg
+*.whl
+
+# Logs
+*.log
+*.out
+*.err
+logs/
+debug.log
+
+# Environment variables
+*.env
+.env.*
+
+# Flask-specific
+instance/
+*.db
+*.sqlite3
+
+# Pytest
+.pytest_cache/
+.coverage
+.cache/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+*.~undo-tree~
+
+# Temp videos
+videos/
+tmp/
