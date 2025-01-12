@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Button } from '../components/shared';
 import { KeyFrames } from '../components/Results/KeyFrames';
 import { FeedbackSection } from '../components/Results/FeedbackSection';
-import { ScoreDisplay } from '../components/Results/ScoreDisplay';
+// import { ScoreDisplay } from '../components/Results/ScoreDisplay';
 import { SaveOptions } from '../components/Results/SaveOptions/SaveOptions';
 import { VideoPlayer } from '../components/Results/VideoPlayer';
 import { useScrollToTop } from '../hooks/useScrollToTop';

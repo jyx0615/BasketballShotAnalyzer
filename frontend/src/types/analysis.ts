@@ -16,8 +16,6 @@ export interface AnalysisResult {
 }
 
 export interface AnalysisState {
-  results: AnalysisResult[];
   currentResult: AnalysisResult | null;
-  setCurrentResult: (result: AnalysisResult) => void;
-  addResult: (result: AnalysisResult) => void;
+  setCurrentResult: (result: AnalysisResult | null) => void;
 }

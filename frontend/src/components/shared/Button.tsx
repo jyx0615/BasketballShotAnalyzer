@@ -1,4 +1,3 @@
-import React from 'react';
 import { ButtonProps } from '../../types/button';
 import { useTheme } from '../../contexts/ThemeContext';
 import { cn } from '../../utils/styles';

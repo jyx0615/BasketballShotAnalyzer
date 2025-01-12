@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Logo } from './Logo';
 import { Navigation } from './Navigation';
 import { MobileMenu } from './MobileMenu';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { gradients } = useTheme();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const handleNavigateHome = () => {
     setIsMenuOpen(false); // Close mobile menu if open
+    navigate('/');
   };
 
   return (

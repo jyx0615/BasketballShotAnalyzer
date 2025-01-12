@@ -1,18 +1,10 @@
-import React from 'react';
 import { Activity } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import { cn } from '../../utils/styles';
 
-export function Logo() {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate('/');
-  };
-
+export function Logo({onNavigateHome}: {onNavigateHome?: () => void}) {
   return (
     <button 
-      onClick={handleClick}
+      onClick={onNavigateHome}
       className={cn(
         "flex items-center space-x-3",
         "transition-opacity hover:opacity-80"

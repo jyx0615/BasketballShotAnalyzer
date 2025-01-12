@@ -1,4 +1,3 @@
-import React from 'react';
 import { VideoUploadProps } from '../../../types/video';
 import { UploadArea } from './UploadArea';
 import { Toast } from '../Toast';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { cn } from '../../utils/styles';

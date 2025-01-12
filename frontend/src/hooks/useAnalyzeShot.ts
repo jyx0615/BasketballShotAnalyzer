@@ -18,7 +18,7 @@ export function useAnalyzeShot(): UseAnalyzeShotResult {
   const [error, setError] = useState<Error | null>(null);
   const [showResults, setShowResults] = useState(false);
   const navigate = useNavigate();
-  const { addResult, setCurrentResult } = useAnalysis();
+  const { setCurrentResult } = useAnalysis();
 
   const analyze = async (video: File, type: 'comparison' | 'individual', comparisonVideo?: File) => {
     setIsAnalyzing(true);
@@ -27,7 +27,7 @@ export function useAnalyzeShot(): UseAnalyzeShotResult {
 
     try {
       const result = await analyzeShot(video, type, comparisonVideo);
-      addResult(result);
+      setCurrentResult(result);
       setShowResults(true);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Analysis failed'));
