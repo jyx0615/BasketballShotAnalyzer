@@ -40,6 +40,28 @@ This feature takes a single input video of the user's shooting practice, which s
     conda activate your_env_name
     #install the dependencies
     pip install -r requirements.txt
+    #update llm api keys in .env
+    cp .env.example .env
     # start the backend server
     python app.py
    ```
+4. Go to http://localhost:5173/ to upload your shooting videos and get the feedback.
+
+## Features
+
+### Frontend
+- **NBA Team Colors Themes**: Multiple themes based on NBA team colors are available.
+- **Theme Customization**: Users can change the theme to their preferred NBA team colors directly on the web.
+- **Save Output**: Users can save the output text and images for future reference.
+- **Custom LLM Integration**: Users can integrate different large language models (LLMs) if they have the necessary API keys.
+
+### Backend
+- **Video Upload**: Upload videos of basketball shots for analysis.
+- **Shot Analysis**: Analyze individual and comparison shots to provide feedback.
+- **Key Frames Extraction**: Extract key frames from the video to highlight important moments.
+- **Feedback Generation**: Generate detailed feedback and suggestions for improvement.
+
+## Results
+### Comparison Analysis
+![Output Example](results/sideByside.gif)
+### Independent Analysis

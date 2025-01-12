@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { API_ENDPOINTS } from './config';
 
 export async function fetchRandomTutorial(): Promise<string> {
   try {
-    const response = await axios.get("http://127.0.0.1:5000/api/tutorial");
+    const response = await axios.get(API_ENDPOINTS.tutorial);
     return response.data.tutorial_link;
   } catch (error) {
     console.error(error);

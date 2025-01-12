@@ -22,14 +22,6 @@ def combine_two_images(image1, image2, output_path):
     os.remove(image2)
 
 
-@app.route('/api/data', methods=['GET'])
-def get_data():
-    print("start to get link")
-    link = getTutorialLink()
-    print(link)
-    return jsonify({"tutorial_link": link})
-
-
 @app.route('/api/analyze/comparison', methods=['POST'])
 def analyze_comparison():
     if 'video' not in request.files or 'comparison_video' not in request.files:
@@ -61,7 +53,7 @@ def analyze_comparison():
     return jsonify(result)
 
 
-@app.route('/api/release/image/<filename>', methods=['GET'])
+@app.route('/api/image/release/<filename>', methods=['GET'])
 def get_release(filename):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     image_path = os.path.join(current_dir, "tmp", filename)
@@ -73,7 +65,7 @@ def get_release(filename):
     return send_file(os.path.join(image_path, "release.jpg"))
 
 
-@app.route('/api/lowest/image/<filename>', methods=['GET'])
+@app.route('/api/image/lowest/<filename>', methods=['GET'])
 def get_lowest(filename):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     image_path = os.path.join(current_dir, "tmp", filename)
@@ -85,7 +77,7 @@ def get_lowest(filename):
     return send_file(os.path.join(image_path, "lowest.jpg"))
 
 
-@app.route('/api/compare/video/<filename>', methods=['GET'])
+@app.route('/api/video/compare/<filename>', methods=['GET'])
 def get_video2(filename):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     video_path = os.path.join(current_dir, "tmp", filename)
@@ -129,7 +121,7 @@ def analyze_individual():
     return jsonify(result)
 
 
-@app.route('/api/path/image/<filename>', methods=['GET'])
+@app.route('/api/image/path/<filename>', methods=['GET'])
 def get_path(filename):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     image_path = os.path.join(current_dir, "tmp", filename)
@@ -139,7 +131,7 @@ def get_path(filename):
     return send_from_directory(image_path, "path.jpg", mimetype='image/jpeg')
 
 
-@app.route('/api/path/video/<filename>', methods=['GET'])
+@app.route('/api/video/path/<filename>', methods=['GET'])
 def get_video(filename):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     video_path = os.path.join(current_dir, "tmp", filename)

@@ -1,5 +1,6 @@
 import { AnalysisResult } from '../types/analysis';
 import axios from 'axios';
+import { API_ENDPOINTS } from './config';
 
 export async function analyzeShot(
   video: File,
@@ -12,8 +13,7 @@ export async function analyzeShot(
   if (type === 'comparison' && comparisonVideo) {
     formData.append('comparison_video', comparisonVideo);
     try{
-      // Use mock service instead of real API
-      const response1 = await axios.post("http://127.0.0.1:5000/api/analyze/comparison", formData, {
+      const response1 = await axios.post(API_ENDPOINTS.analyze.comparison, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -21,19 +21,19 @@ export async function analyzeShot(
       const feedback = response1.data.feedback;
       const filename = response1.data.filename;
 
-      const response2 = await axios.get(`http://127.0.0.1:5000/api/release/image/${filename}`, {
+      const response2 = await axios.get(`${API_ENDPOINTS.image.release}/${filename}`, {
         responseType: 'blob' // Set the response type to 'blob'
       });
       const imgBlob = new Blob([response2.data], { type: response2.headers['content-type'] });
       const imgUrl = URL.createObjectURL(imgBlob);
 
-      const response4 = await axios.get(`http://127.0.0.1:5000/api/lowest/image/${filename}`, {
+      const response4 = await axios.get(`${API_ENDPOINTS.image.lowest}/${filename}`, {
         responseType: 'blob' // Set the response type to 'blob'
       });
       const imgBlob2 = new Blob([response4.data], { type: response4.headers['content-type'] });
       const imgUrl2 = URL.createObjectURL(imgBlob2);
 
-      const response3 = await axios.get(`http://127.0.0.1:5000/api/compare/video/${filename}`, {
+      const response3 = await axios.get(`${API_ENDPOINTS.video.compare}/${filename}`, {
         responseType: 'blob' // Set the response type to 'blob'
       });
       const videoBlob = new Blob([response3.data], { type: response3.headers['content-type'] });
@@ -77,21 +77,21 @@ export async function analyzeShot(
     }
   } else {
     try {
-      // Use mock service instead of real API
-      const response1 = await axios.post("http://127.0.0.1:5000/api/analyze/individual", formData, {
+      const response1 = await axios.post(API_ENDPOINTS.analyze.individual, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
       });
       const feedback = response1.data.feedback;
+      const filename = response1.data.filename;
   
-      const response2 = await axios.get(`http://127.0.0.1:5000/api/path/image/${response1.data.filename}`, {
+      const response2 = await axios.get(`${API_ENDPOINTS.image.path}/${filename}`, {
         responseType: 'blob' // Set the response type to 'blob'
       });
       const imgBlob = new Blob([response2.data], { type: response2.headers['content-type'] });
       const imgUrl = URL.createObjectURL(imgBlob);
   
-      const response3 = await axios.get(`http://127.0.0.1:5000/api/path/video/${response1.data.filename}`, {
+      const response3 = await axios.get(`${API_ENDPOINTS.video.path}/${filename}`, {
         responseType: 'blob' // Set the response type to 'blob'
       });
       const videoBlob = new Blob([response3.data], { type: response3.headers['content-type'] });
